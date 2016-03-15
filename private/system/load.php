@@ -1,6 +1,7 @@
 <?php
 
 include 'private/system/constants.php';
+include 'private/system/db.class.php';
 
 /**
 * @param $className
@@ -8,8 +9,12 @@ include 'private/system/constants.php';
 function __autoload($className)
 {
 
-	$fileName = GLOBAL_CLASS_PATH . ucfirst($className) .".php";
-	include_once($fileName);
+	if(strpos($className, '_model') === false) {
+		$fileName = GLOBAL_CLASS_PATH . ucfirst($className) . ".php";
+	} else {
+		$fileName = GLOBAL_MODEL_PATH . ucfirst($className) . ".php";
+	}
+	include($fileName);
 
 }
 

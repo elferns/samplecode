@@ -9,7 +9,8 @@
 class db
 {
 
-	private static $lnObj;
+    static $lnObj;
+    public $dbObj;
 
 	/**
 	 * db constructor.
@@ -19,7 +20,7 @@ class db
 
 		$this->software 	= 'mysql';
 		$this->dbserver 	= 'localhost';
-		$this->database 	= 'bookings';
+		$this->database 	= 'booking';
 		$this->dbusername 	= 'root';
 		$this->dbpassword 	= '';
 
@@ -44,12 +45,15 @@ class db
 				self::$lnObj->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 				self::$lnObj->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
 				self::$lnObj->query("SET CHARACTER SET utf8");
+
 			}
 			catch (PDOException $e)
 			{
 				$this->connect_error();
 			}
 		}
+
+        //return self::$lnObj;
 	}
 
 	/**

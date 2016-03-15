@@ -15,6 +15,7 @@ class Login extends Main
 	function __construct()
 	{
 		//TODO
+		$this->model = new login_model();
 	}
 
 	/**
@@ -35,11 +36,14 @@ class Login extends Main
 	 */
 	public function authenticate($params)
 	{
+        //TODO - server side validation
+		$check['email'] 		= trim($params['inputEmail']);
+		$check['password'] 		= trim($params['inputPassword']);
 
-		print_r($params);
-		$email 		= trim($params['inputEmail']);
-		$password 	= trim($params['inputPassword']);
-
-		//TODO login functionality
+		$userCount = $this->model->checkUser($check);
+		if($userCount)
+			echo "Welcome to booking portal";
+		else
+			$this->redirect();
 	}
 }

@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-offset-5 col-md-3">
-        	<form name="login" id="loginForm" method="post" action="<?php echo $form_action; ?>">
+        	<form name="login" id="loginForm" method="post" action="<?php echo $form_action; ?>" autocomplete="off">
 	            <div class="form-login">
 	            <h4>Welcome to booking portal</h4>
 		           	<div class="form-group">

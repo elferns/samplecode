@@ -61,7 +61,7 @@ class Main
 	/**
 	 * @param $url
      */
-	function redirect($url)
+	function redirect($url='')
 	{
 
 		header('Location: '.BASE_URL.$url);
